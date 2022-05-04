@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.txtArchivo = new System.Windows.Forms.TextBox();
             this.lblArchivo = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -70,6 +71,8 @@
             // 
             // openFileDialog
             // 
+            this.openFileDialog.Filter = "sql files (*.sql)|*.sql|txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            this.openFileDialog.Title = "Seleccione un archivo";
             this.openFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog_FileOk);
             // 
             // txtNumLineas
@@ -151,6 +154,7 @@
             this.Controls.Add(this.lblArchivo);
             this.Controls.Add(this.txtArchivo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";

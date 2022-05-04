@@ -5,7 +5,8 @@ namespace Splitter
         public Form1()
         {
             InitializeComponent();
-            txtLineas.Enabled = false;
+            txtLineas.Enabled = false; 
+            btnProcesar.Enabled = false;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -18,6 +19,13 @@ namespace Splitter
             txtArchivo.Text = openFileDialog.FileName;
             txtNumLineas.Text = File.ReadAllLines(openFileDialog.FileName).Length.ToString();
             txtLineas.Enabled = true;
+            btnProcesar.Enabled = true;
+            string[] dir = openFileDialog.FileName.Split('\\');
+            string directory = string.Empty;
+            for (int i = 0; i <= dir.Length-2; i++)
+            {
+                directory = directory + dir[i] + "\\";
+            }
         }
 
         private void btnProcesar_Click(object sender, EventArgs e)
@@ -30,11 +38,7 @@ namespace Splitter
                     int pos = 0;
                     List<string> lista = new List<string>();
                     string[] lines = File.ReadAllLines(txtArchivo.Text);
-                    progressBar.Visible = true;
-                    progressBar.Minimum = 1;
-                    progressBar.Maximum = lines.Length;
-                    progressBar.Value = 1;
-                    progressBar.Step = 1;
+                    enablePBar(lines);
                     while (pos < lines.Length)
                     {
                         for (int i = 1; i <= int.Parse(txtLineas.Text); i++)
@@ -78,6 +82,15 @@ namespace Splitter
             {
                 e.Handled = true;
             }
+        }
+
+        public void enablePBar(string[] lines)
+        {
+            progressBar.Visible = true;
+            progressBar.Minimum = 1;
+            progressBar.Maximum = lines.Length;
+            progressBar.Value = 1;
+            progressBar.Step = 1;
         }
     }
 }
