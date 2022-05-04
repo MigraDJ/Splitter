@@ -71,7 +71,7 @@
             // 
             // openFileDialog
             // 
-            this.openFileDialog.Filter = "sql files (*.sql)|*.sql|txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            this.openFileDialog.Filter = "SQL files (*.sql)|*.sql|TXT files (*.txt)|*.txt|All files (*.*)|*.*";
             this.openFileDialog.Title = "Seleccione un archivo";
             this.openFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog_FileOk);
             // 
