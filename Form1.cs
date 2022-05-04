@@ -52,14 +52,22 @@ namespace Splitter
                         }
 
                         string fileName = txtArchivo.Text + "_" + numfile.ToString() + ".sql";
-                        using (StreamWriter sw = File.CreateText(fileName))
+                        if (!File.Exists(fileName))
                         {
-                            foreach (string l in lista)
+                            using (StreamWriter sw = File.CreateText(fileName))
                             {
-                                sw.WriteLine(l);
+                                foreach (string l in lista)
+                                {
+                                    sw.WriteLine(l);
+                                }
+                                lista.Clear();
+                                numfile++;
                             }
-                            lista.Clear();
-                            numfile++;
+                        }
+                        else
+                        {
+                            MessageBox.Show("El archivo que se intenta crear ya existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
                         }
                     }
                     MessageBox.Show("Proceso terminado correctamente.", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
