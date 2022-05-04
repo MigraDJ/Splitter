@@ -51,7 +51,7 @@ namespace Splitter
                             progressBar.PerformStep();
                         }
 
-                        string fileName = txtArchivo.Text + "_" + numfile.ToString() + ".txt";
+                        string fileName = txtArchivo.Text + "_" + numfile.ToString() + ".sql";
                         using (StreamWriter sw = File.CreateText(fileName))
                         {
                             foreach (string l in lista)
