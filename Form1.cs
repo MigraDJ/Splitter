@@ -74,8 +74,9 @@ namespace Splitter
                 }
                 else
                 {
-                    MessageBox.Show("Operación no válida, el número de líneas del archivo es menor al número de líneas establecido para dividir."
+                    MessageBox.Show("OperaciÃ³n no vÃ¡lida, el nÃºmero de lÃ­neas del archivo es menor al nÃºmero de lÃ­neas establecido para dividir."
                         , "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
                 }
             }
             catch (Exception ex)
